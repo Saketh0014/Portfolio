@@ -1,6 +1,6 @@
 [build]
-  command = "git submodule update --init --recursive && npm run build"
-  publish = "build"
+  command = "git submodule update --init --recursive && cd portfolio-react && npm install && npm run build"
+  publish = "portfolio-react/build"
 
 [context.production]
   environment = { NODE_VERSION = "14" }
