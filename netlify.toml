@@ -1,0 +1,8 @@
+publish = "portfolio-react/build"
+=======
+  command = "git submodule update --init --recursive && cd portfolio-react && npm run build"
+  publish = "portfolio-react/build"
+>>>>>>> REPLACE
+
+[context.production]
+  environment = { NODE_VERSION = "14" }
