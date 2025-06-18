@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@600&display=swap');
+
+/* Global styles and resets */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0a192f;
+  color: #a8b2d1;
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  scroll-behavior: smooth;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2rem;
+}
+
+a, .social-icon {
+  color: #64ffda;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover, .social-icon:hover {
+  color: #a8b2d1;
+}
+
+a:hover {
+  text-decoration: underline;
+  border-radius: 5px;
+}
+
+h1, h2, h3 {
+  color: #ccd6f6;
+  margin-bottom: 0.5rem;
+  font-family: 'Merriweather', serif;
+}
+
+section {
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #233554;
+  padding-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-name {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  font-size: 3rem;
+  letter-spacing: 2px;
+  color: #ccd6f6;
+}
+
+.header-tagline {
+  font-size: 1.2rem;
+  color: #8892b0;
+  margin-bottom: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.social-icon {
+  font-size: 2.5rem;
+  border-radius: 50%;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.header-nav a {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #ccd6f6;
+  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.header-nav a:hover {
+  color: #64ffda;
+  background-color: transparent;
+  text-decoration: none;
+  box-shadow: none !important;
+}
+
+.project, .education-item, .certificate-item {
+  margin-bottom: 1rem;
+}
+
+.skills-list, .soft-skills-list {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skills-list li, .soft-skills-list li {
+  position: relative;
+  background-color: #112240;
+  color: #64ffda;
+  padding: 0.3rem 0.7rem 0.3rem 1.5rem;
+  border-radius: 15px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.skills-list li::before, .soft-skills-list li::before {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+}
+
+.skills-list li::before {
+  background-color: #64ffda;
+}
+
+.skills-list:nth-of-type(1) li::before {
+  background-color: #64ffda; /* Primary Skills */
+}
+
+.skills-list:nth-of-type(2) li::before {
+  background-color: #64ffda; /* Web Development */
+}
+
+.skills-list:nth-of-type(3) li::before {
+  background-color: #64ffda; /* Databases */
+}
+
+.skills-list:nth-of-type(4) li::before {
+  background-color: #64ffda; /* Core Concepts */
+}
+
+.soft-skills-list li::before {
+  background-color: #64ffda; /* Soft Skills */
+}
+
+.contact-info a {
+  display: inline-block;
+  margin-right: 1rem;
+  color: #64ffda;
+  transition: color 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.contact-info a:hover {
+  color: #0a192f;
+  background-color: #64ffda;
+  text-decoration: none;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+    max-width: 100%;
+  }
+
+  .header-name {
+    font-size: 2rem;
+  }
+
+  .header-nav {
+    gap: 1rem;
+  }
+}
