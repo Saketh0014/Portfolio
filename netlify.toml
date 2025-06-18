@@ -1,7 +1,3 @@
-=======
-  command = "git submodule update --init --recursive && cd portfolio-react && npm run build"
-  publish = "portfolio-react/build"
->>>>>>> REPLACE
 [build]
   command = "git submodule update --init --recursive && cd portfolio-react && npm run build"
   publish = "portfolio-react/build"
