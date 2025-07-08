@@ -33,7 +33,7 @@ const Header = () => {
         <a href="#education">Education</a>
         <a href="#certifications">Certifications</a>
         <a href="#contact">Contact</a>
-        <a href="https://drive.google.com/file/d/1BeOU4pql5zLXVLd2-9Fs3VM_5JZhqFnS/view?usp=sharing" target="_blank" rel="noopener noreferrer">View Resume</a>
+        <a href="https://drive.google.com/file/d/1aKUwCwDIoWfi-8lamk0u1gpsqlGBcOp9/view?usp=drive_link" target="_blank" rel="noopener noreferrer">View Resume</a>
       </nav>
     </header>
   );
