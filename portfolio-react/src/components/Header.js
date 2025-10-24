@@ -28,12 +28,13 @@ const Header = () => {
       </div>
       <nav className="header-nav">
         <a href="#about">About</a>
+        <a href="#Internship">Internship</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#education">Education</a>
         <a href="#certifications">Certifications</a>
         <a href="#contact">Contact</a>
-        <a href="https://drive.google.com/file/d/1aKUwCwDIoWfi-8lamk0u1gpsqlGBcOp9/view?usp=drive_link" target="_blank" rel="noopener noreferrer">View Resume</a>
+        <a href="https://drive.google.com/file/d/1IvnlHbw00SaknxAN9NGGjfDPPcQzWgTw/view?usp=sharing" target="_blank" rel="noopener noreferrer">View Resume</a>
       </nav>
     </header>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './components/Header';
+import Experience from './components/internship';
 import About from './components/About';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <main>
         <About />
+        <Experience/>
         <Projects />
         <Skills />
         <Education />

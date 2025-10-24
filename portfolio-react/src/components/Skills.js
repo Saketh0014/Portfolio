@@ -2,7 +2,7 @@ import React from 'react';
 
 const primarySkills = ['Python', 'C', 'C++', 'JavaScript'];
 const webDevelopment = ['HTML', 'CSS', 'JavaScript', 'Django', 'React'];
-const databases = ['SQL', 'MySQL'];
+const databases = ['SQL', 'MySQL','PostgreSQL', 'SQLite'];
 const coreConcepts = ['Object-Oriented Programming (OOP)', 'Data Structures', 'Algorithms'];
 const softSkills = ['Communication', 'Critical Thinking', 'Problem Solving'];
 
