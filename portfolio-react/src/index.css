@@ -57,6 +57,10 @@ section {
   animation: fadeInUp 0.8s forwards;
 }
 
+#Internship {
+  margin-bottom: 3rem;
+}
+
 header {
   text-align: center;
   margin-bottom: 3rem;
@@ -118,7 +122,7 @@ header {
 }
 
 .project, .education-item, .certificate-item {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .skills-list, .soft-skills-list {
