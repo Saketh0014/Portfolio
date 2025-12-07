@@ -1,2 +1,5 @@
 # Ignore portfolio-react nested git repo to avoid commit issues
 # portfolio-react/
+
+# Local Netlify folder
+.netlify
