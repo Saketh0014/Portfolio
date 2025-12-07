@@ -175,14 +175,25 @@ header {
   width: 100%;
 }
 
+/* Logo */
 .logo {
-  color: var(--green);
+  color: var(--lightest-slate);
   font-family: var(--font-mono);
-  font-size: 1.5rem;
+  font-size: 22px;
+  /* Increased to 22px (balanced) */
   font-weight: 700;
   border: 1px solid var(--green);
   padding: 5px 10px;
   border-radius: 5px;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo:hover {
+  color: var(--green);
+  background-color: transparent;
 }
 
 .header-nav {
@@ -203,9 +214,11 @@ header {
 
 /* Buttons */
 .resume-btn {
-  color: var(--green);
+  color: var(--lightest-slate);
+  /* Reverted to Lightest Slate */
   background-color: transparent;
   border: 1px solid var(--green);
+  /* Fixed Green Border */
   border-radius: 4px;
   padding: 0.75rem 1rem;
   font-family: var(--font-mono);
@@ -215,7 +228,9 @@ header {
 }
 
 .resume-btn:hover {
-  background-color: var(--green-tint);
+  color: var(--green);
+  /* Highlight Text */
+  background-color: transparent;
 }
 
 .send-message-btn {
@@ -244,6 +259,30 @@ header {
 .send-message-btn:disabled {
   cursor: not-allowed;
   opacity: 0.7;
+}
+
+.scroll-top-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background-color: var(--green);
+  color: var(--navy);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+  transition: all 0.3s ease;
+}
+
+.scroll-top-btn:hover {
+  background-color: var(--lightest-slate);
+  color: var(--navy);
+  transform: translateY(-5px);
 }
 
 /* Project Cards (Grid) */
@@ -328,9 +367,50 @@ header {
 }
 
 .job-role {
-  font-size: 20px;
+  font-size: 22px;
   color: var(--lightest-slate);
   font-weight: 600;
+  font-family: var(--font-sans);
+  /* More formal than mono */
+}
+
+.company-link {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  position: relative;
+  transition: var(--transition);
+}
+
+.company-link:hover {
+  color: var(--lightest-slate) !important;
+}
+
+.company-link::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 1px;
+  background: var(--lightest-slate);
+  transition: width 0.3s;
+}
+
+.company-link:hover::after {
+  width: 100%;
+}
+
+.cert-link {
+  color: var(--green);
+  font-size: 14px;
+  margin-left: 10px;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+}
+
+.cert-link:hover {
+  color: var(--lightest-slate);
+  transform: translateY(-2px);
 }
 
 .job-company {
@@ -338,10 +418,13 @@ header {
 }
 
 .job-duration {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  color: var(--slate);
+  font-family: var(--font-sans);
+  /* More formal */
+  font-size: 14px;
+  color: var(--light-slate);
   margin-bottom: 10px;
+  font-style: italic;
+  /* Adds a bit of formality */
 }
 
 .job-desc-list {

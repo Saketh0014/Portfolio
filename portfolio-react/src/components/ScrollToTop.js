@@ -27,23 +27,7 @@ const ScrollToTop = () => {
   return (
     <div className="scroll-to-top">
       {isVisible && (
-        <div onClick={scrollToTop} style={{
-          position: 'fixed',
-          bottom: '40px',
-          right: '40px',
-          backgroundColor: 'var(--green)',
-          color: 'var(--navy)',
-          width: '50px',
-          height: '50px',
-          borderRadius: '50%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          cursor: 'pointer',
-          zIndex: 1000,
-          boxShadow: '0 10px 30px -10px rgba(2,12,27,0.7)',
-          transition: 'all 0.3s ease'
-        }}>
+        <div onClick={scrollToTop} className="scroll-top-btn">
           <FaArrowUp style={{ fontSize: '20px' }} />
         </div>
       )}

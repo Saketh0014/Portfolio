@@ -27,9 +27,9 @@ const Hero = () => {
        </p>
        
        <div style={{ display: 'flex', gap: '25px', justifyContent: 'center' }}>
-          <a href="https://github.com/Saketh0014" target="_blank" rel="noopener noreferrer" style={{ fontSize: '28px' }}><FaGithub /></a>
-          <a href="https://www.linkedin.com/in/sri-saketh-35767224a" target="_blank" rel="noopener noreferrer" style={{ fontSize: '28px' }}><FaLinkedin /></a>
-          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=srisaketh111@gmail.com" target="_blank" rel="noopener noreferrer" style={{ fontSize: '28px' }}><FaEnvelope /></a>
+          <a href="https://github.com/Saketh0014" target="_blank" rel="noopener noreferrer" className="hero-icon" style={{ fontSize: '28px' }}><FaGithub /></a>
+          <a href="https://www.linkedin.com/in/sri-saketh-35767224a" target="_blank" rel="noopener noreferrer" className="hero-icon" style={{ fontSize: '28px' }}><FaLinkedin /></a>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=srisaketh111@gmail.com" target="_blank" rel="noopener noreferrer" className="hero-icon" style={{ fontSize: '28px' }}><FaEnvelope /></a>
        </div>
 
        <div style={{ position: 'absolute', bottom: '40px', left: '50%', transform: 'translateX(-50%)', zIndex: 10 }}>
@@ -39,12 +39,22 @@ const Hero = () => {
        </div>
        <style>
          {`
+           .hero-icon {
+             color: var(--green);
+             transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+           }
+           .hero-icon:hover {
+             color: var(--lightest-slate);
+             transform: translateY(-3px);
+           }
            .more-btn {
-             display: inline-block;
+             display: inline-flex;
+             justify-content: center;
+             align-items: center;
              border: 1px solid var(--green);
              border-radius: 50px;
              padding: 12px 24px;
-             color: var(--green);
+             color: var(--lightest-slate); /* Reverted to Lightest Slate */
              font-family: var(--font-mono);
              font-size: 13px;
              text-decoration: none;
@@ -53,8 +63,8 @@ const Hero = () => {
              animation: bounce 2s infinite;
            }
            .more-btn:hover {
-             color: var(--lightest-slate);
-             background-color: var(--green-tint);
+             color: var(--green);
+             background-color: transparent;
            }
            @keyframes bounce {
              0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 

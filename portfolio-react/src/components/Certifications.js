@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 const certifications = [
   {
@@ -27,9 +28,9 @@ const Certifications = () => {
           <li key={index} style={{ marginBottom: '15px', position: 'relative', paddingLeft: '20px' }}>
             <span style={{ position: 'absolute', left: 0, color: 'var(--green)' }}>▹</span>
             <span style={{ color: 'var(--lightest-slate)', fontWeight: 500 }}>{cert.title}</span> 
-            <span style={{ color: 'var(--slate)' }}> — {cert.issuer}</span>
+            <span style={{ color: cert.issuer === 'AICTE' ? 'var(--green)' : 'var(--slate)' }}> — {cert.issuer}</span>
             {cert.link && (
-               <a href={cert.link} target="_blank" rel="noopener noreferrer" style={{ marginLeft: '10px', fontSize: '13px', fontFamily: 'var(--font-mono)' }}>View</a>
+               <a href={cert.link} target="_blank" rel="noopener noreferrer" className="cert-link"><FaExternalLinkAlt /></a>
             )}
           </li>
         ))}

@@ -20,8 +20,8 @@ function App() {
         <Experience />
         <Projects />
         <Skills />
-        <Education />
         <Certifications />
+        <Education />
         <Contact />
         <ScrollToTop />
       </main>

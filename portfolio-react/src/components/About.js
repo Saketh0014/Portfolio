@@ -4,7 +4,7 @@ const About = () => {
   return (
     <section id="about" className="fade-in-section">
       <h2 className="section-title">About Me</h2>
-      <div className="about-content" style={{ maxWidth: '800px', margin: '0 auto' }}>
+      <div className="about-content">
         <p>
           I'm a Computer Science graduate with a strong interest in backend development, distributed systems, and intelligent applications. I enjoy designing scalable server-side architectures, building reliable APIs, and working with systems that involve real-time communication and AI-driven functionality.
         </p>
