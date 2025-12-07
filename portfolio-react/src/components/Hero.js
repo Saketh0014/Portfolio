@@ -19,10 +19,11 @@ const Hero = () => {
          Sri Saketh.
        </h1>
        <h2 style={{ color: 'var(--slate)', fontSize: 'clamp(30px, 5vw, 50px)', lineHeight: '1.1', marginBottom: '20px' }}>
-         I build scalable backend systems.
+           Software Developer
        </h2>
        <p style={{ maxWidth: '540px', fontSize: '16px', lineHeight: '1.6', marginBottom: '40px', color: 'var(--slate)', margin: '0 auto 40px auto' }}>
-         I'm a B.Tech CSE graduate and Software Development Engineer, specializing in building production-grade RESTful APIs, real-time systems, and AI-driven platforms.
+          {/* A B.Tech CSE graduate and Software Development Engineer, specializing in building production-grade RESTful APIs, real-time systems, and AI-driven platforms. */}
+          Designing scalable APIs, real-time communication systems, and AI-integrated platforms.
        </p>
        
        <div style={{ display: 'flex', gap: '25px', justifyContent: 'center' }}>
@@ -31,11 +32,30 @@ const Hero = () => {
           <a href="https://mail.google.com/mail/?view=cm&fs=1&to=srisaketh111@gmail.com" target="_blank" rel="noopener noreferrer" style={{ fontSize: '28px' }}><FaEnvelope /></a>
        </div>
 
-       <div style={{ position: 'absolute', bottom: '40px', left: '50%', transform: 'translateX(-50%)', animation: 'bounce 2s infinite' }}>
-         <a href="#about" style={{ color: 'var(--lightest-slate)', fontSize: '24px' }}>↓</a>
+       <div style={{ position: 'absolute', bottom: '40px', left: '50%', transform: 'translateX(-50%)', zIndex: 10 }}>
+         <a href="#about" className="more-btn">
+           More About Me
+         </a>
        </div>
        <style>
          {`
+           .more-btn {
+             display: inline-block;
+             border: 1px solid var(--green);
+             border-radius: 50px;
+             padding: 12px 24px;
+             color: var(--green);
+             font-family: var(--font-mono);
+             font-size: 13px;
+             text-decoration: none;
+             background-color: transparent;
+             transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+             animation: bounce 2s infinite;
+           }
+           .more-btn:hover {
+             color: var(--lightest-slate);
+             background-color: var(--green-tint);
+           }
            @keyframes bounce {
              0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 
              40% {transform: translateY(-10px);} 

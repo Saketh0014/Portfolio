@@ -6,7 +6,7 @@ const Header = () => {
     <header>
       <div className="nav-container">
         <a href="#" className="logo" aria-label="Home" style={{ 
-          border: '1px solid var(--lightest-slate)', 
+          border: '1px solid var(--green)', 
           borderRadius: '4px', 
           padding: '7px 10px', 
           display: 'flex', 
