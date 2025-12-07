@@ -1,49 +1,50 @@
 import React from 'react';
+
 const projects = [
   {
-    title: 'Eleganz Interiors — AI-Powered Construction Cost Estimation Platform',
-    tech: 'Python, Django REST Framework, OpenAI API, TF-IDF, SQLite/PostgreSQL, Postman',
-
-    description: [
-      'Contributed to the development of a scalable backend system for a next-generation construction analytics platform focused on AI-driven cost estimation.',
-      'Integrated OpenAI GPT-5 models to intelligently interpret raw item descriptions and automatically classify materials with high accuracy.',
-      'Implemented TF-IDF (NLP)-based item similarity matching, improving item recognition precision across 10,000+ materials.',
-      'Built modular REST APIs for projects, items, users, and approvals, enabling seamless interaction between multiple user roles.',
-      'Developed a multi-tier workflow system (Maker → Checker → Admin) for structured project cost submissions and validations.',
-      'Created CSV ingestion pipelines to automate the extraction, mapping, and cost computation of construction materials.',
-      'Delivered a production-ready backend reducing manual estimation time, enhancing accuracy, and enabling intelligent cost analysis for enterprises.',
-    ],
+    title: 'Eleganz Interiors',
+    tech: ['Python', 'Django', 'OpenAI API', 'TF-IDF', 'Redis'],
+    description: 'AI-Powered Construction Cost Estimation Platform. Automates cost estimation using GPT-5 for material classification and TF-IDF for similarity search. Features approval workflows and Celery pipelines.',
   },
   {
-    title: 'Padhega India — Book E-commerce and Automation Platform',
-    tech: 'Django, Django REST Framework, PostgreSQL, Postman',
-
-    description: [
-      'Contributed to the development of a feature-rich e-commerce backend for a large-scale digital bookstore, automating all core operations.',
-      'Migrated the client’s legacy Excel- and WordPress-based processes into a fully automated Django REST API system.',
-      'Built APIs for book inventory, author management, categories, carts, orders, users, and reviews, enabling full CRUD, filtering, sorting, and real-time synchronization.',
-      'Implemented secure authentication and user management with JWT tokens and admin-level dashboards.',
-      'Automated inventory tracking, stock updates, and dynamic pricing to eliminate repetitive manual workflows.',
-      'Delivered a production-grade backend enabling a smooth, reliable, and data-driven shopping experience for thousands of users.',
-    ],
+    title: 'Padhega India',
+    tech: ['Django', 'DRF', 'PostgreSQL', 'JWT', 'Razorpay'],
+    description: 'Scalable e-commerce book platform replacing Excel workflows. Features inventory management, secure auth, stock updates, and dynamic pricing.',
+  },
+  {
+    title: 'Health Agent (Lemon)',
+    tech: ['React Native', 'FastAPI', 'HealthKit', 'LangChain'],
+    description: 'AI-Driven Wellness & Meal Planning System. Integrates HealthKit/Fitbit data, orchestrates multi-agent workflows for meal plans, and uses cron jobs for recommendations.',
+  },
+  {
+    title: 'PawBud',
+    tech: ['WebRTC', 'Django Channels', 'WebSocket', 'LLMs'],
+    description: 'Veterinary Telemedicine Platform with video calling, chat, and EMR generation using LLM-based SOAP notes. Secure 3-role system for Vets, Owners, and Admins.',
+  },
+  {
+    title: 'InPixr',
+    tech: ['Python', 'Stripe', 'Image Processing', 'AI Metadata'],
+    description: 'Digital Asset Marketplace for high-res media. Built image processing pipelines (resizing, watermarking), Stripe payments, and AI metadata generation.',
   },
 ];
 
 const Projects = () => {
   return (
-    <section id="projects">
-      <h2>Projects</h2>
-      {projects.map((project, index) => (
-        <div className="project" key={index}>
-          <h3>{project.title}</h3>
-          <p><strong>TECH STACK:</strong> {project.tech}</p>
-          <ul>
-            {project.description.map((point, i) => (
-              <li key={i}>{point}</li>
-            ))}
-          </ul>
-        </div>
-      ))}
+    <section id="projects" className="fade-in-section">
+      <h2 className="section-title">Some Things I've Built</h2>
+      <div className="projects-grid">
+        {projects.map((project, index) => (
+          <div className="project-card" key={index} style={{ padding: '2rem' }}>
+            <h3 className="project-title" style={{ marginBottom: '1rem', color: 'var(--lightest-slate)' }}>{project.title}</h3>
+            <p className="project-desc" style={{ marginBottom: '1.5rem' }}>{project.description}</p>
+            <ul className="project-tech-list" style={{ marginTop: 'auto' }}>
+              {project.tech.map((tech, i) => (
+                <li key={i} style={{ color: 'var(--slate)', fontFamily: 'var(--font-mono)', fontSize: '12px', marginRight: '10px' }}>{tech}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
     </section>
   );
 };

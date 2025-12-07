@@ -1,6 +1,8 @@
 import React from 'react';
 import Header from './components/Header';
-import Experience from './components/internship';
+import Hero from './components/Hero';
+import ScrollToTop from './components/ScrollToTop';
+import Experience from './components/Experience';
 import About from './components/About';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
@@ -12,14 +14,16 @@ function App() {
   return (
     <>
       <Header />
-      <main>
+      <main className="app-container">
+        <Hero />
         <About />
-        <Experience/>
+        <Experience />
         <Projects />
         <Skills />
         <Education />
         <Certifications />
         <Contact />
+        <ScrollToTop />
       </main>
     </>
   );
