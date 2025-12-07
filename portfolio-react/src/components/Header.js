@@ -1,41 +1,34 @@
 import React from 'react';
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
-
-const socialLinks = [
-  { icon: <FaGithub />, url: 'https://github.com/Saketh0014', label: 'GitHub' },
-  { icon: <FaLinkedin />, url: 'https://www.linkedin.com/in/sri-saketh-35767224a', label: 'LinkedIn' },
-  { icon: <FaEnvelope />, url: 'mailto:srisaketh111@gmail.com', label: 'Email' },
-];
+import { FaGithub, FaLinkedin, FaEnvelope, FaHome } from 'react-icons/fa';
 
 const Header = () => {
   return (
-    <header className="header-hero">
-      <h1 className="header-name">Venkata Sri Saketh Perapragada</h1>
-      <p className="header-tagline">Building creative, accessible, and performant web experiences.</p>
-      <div className="social-icons">
-        {socialLinks.map(({ icon, url, label }) => (
-          <a
-            key={label}
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={label}
-            className="social-icon"
-          >
-            {icon}
+    <header>
+      <div className="nav-container">
+        <a href="#" className="logo" aria-label="Home" style={{ 
+          border: '1px solid var(--lightest-slate)', 
+          borderRadius: '4px', 
+          padding: '7px 10px', 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'center',
+          color: 'var(--lightest-slate)',
+          fontSize: '18px'
+        }}>
+          <FaHome />
+        </a>
+        <nav className="header-nav">
+          <a href="#about">About</a>
+          <a href="#experience">Internship</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#education">Education</a>
+          <a href="#contact">Contact</a>
+          <a href="https://drive.google.com/file/d/1AX5FHYG8FLAuR75XcatBn1AX2ZTa26G9/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="resume-btn">
+            Resume
           </a>
-        ))}
+        </nav>
       </div>
-      <nav className="header-nav">
-        <a href="#about">About</a>
-        <a href="#Internship">Internship</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#contact">Contact</a>
-        <a href="https://drive.google.com/file/d/1IvnlHbw00SaknxAN9NGGjfDPPcQzWgTw/view?usp=sharing" target="_blank" rel="noopener noreferrer">View Resume</a>
-      </nav>
     </header>
   );
 };

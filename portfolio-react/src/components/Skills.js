@@ -1,45 +1,48 @@
 import React from 'react';
 
-const primarySkills = ['Python', 'C', 'C++', 'JavaScript'];
-const webDevelopment = ['HTML', 'CSS', 'JavaScript', 'Django', 'React'];
-const databases = ['SQL', 'MySQL','PostgreSQL', 'SQLite'];
-const coreConcepts = ['Object-Oriented Programming (OOP)', 'Data Structures', 'Algorithms'];
-const softSkills = ['Communication', 'Critical Thinking', 'Problem Solving'];
+const skillsData = [
+  {
+    category: 'Primary Languages',
+    skills: ['Python', 'C', 'C++', 'Java', 'JavaScript'],
+  },
+  {
+    category: 'Backend Frameworks',
+    skills: ['Django', 'Django REST Framework', 'Flask', 'FastAPI'],
+  },
+  {
+    category: 'Frontend & Web',
+    skills: ['React', 'Next.js', 'HTML', 'CSS'],
+  },
+  {
+    category: 'Databases',
+    skills: ['PostgreSQL', 'MySQL', 'MariaDB', 'SQLite', 'Supabase'],
+  },
+  {
+    category: 'Cloud & DevOps',
+    skills: ['AWS (EC2, Lambda)', 'Docker', 'GitHub Actions', 'Redis', 'Celery'],
+  },
+  {
+    category: 'AI / ML & LLMs',
+    skills: ['OpenAI/Gemini APIs', 'LangChain', 'Agentic AI', 'NLP', 'Pinecone', 'Computer Vision'],
+  },
+];
 
 const Skills = () => {
   return (
-    <section id="skills">
-      <h2>Skills</h2>
-      <h3>Primary Skills</h3>
-      <ul className="skills-list">
-        {primarySkills.map((skill, index) => (
-          <li key={index}>{skill}</li>
+    <section id="skills" className="fade-in-section">
+      <h2 className="section-title">Skills</h2>
+      <div className="skills-grid">
+        {skillsData.map((group, index) => (
+          <div key={index} className="skill-category">
+            <h3>{group.category}</h3>
+            <ul className="skill-tags">
+              {group.skills.map((skill, i) => (
+                <li key={i} className="skill-tag">{skill}</li>
+              ))}
+            </ul>
+          </div>
         ))}
-      </ul>
-      <h3>Web Development</h3>
-      <ul className="skills-list">
-        {webDevelopment.map((skill, index) => (
-          <li key={index}>{skill}</li>
-        ))}
-      </ul>
-      <h3>Databases</h3>
-      <ul className="skills-list">
-        {databases.map((skill, index) => (
-          <li key={index}>{skill}</li>
-        ))}
-      </ul>
-      <h3>Core Concepts</h3>
-      <ul className="skills-list">
-        {coreConcepts.map((skill, index) => (
-          <li key={index}>{skill}</li>
-        ))}
-      </ul>
-      <h3>Soft Skills</h3>
-      <ul className="soft-skills-list">
-        {softSkills.map((skill, index) => (
-          <li key={index}>{skill}</li>
-        ))}
-      </ul>
+      </div>
     </section>
   );
 };
