@@ -504,7 +504,6 @@ header {
     display: none;
     /* For simplicity, hide desktop nav on mobile or implement burger menu later */
   }
-
   .skills-grid {
     grid-template-columns: 1fr;
   }
