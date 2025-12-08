@@ -458,28 +458,58 @@ header {
   margin-bottom: 15px;
 }
 
-.skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  list-style: none;
+/* Skill Cards */
+.skill-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 15px;
 }
 
-.skill-tag {
+.skill-card {
   background: var(--light-navy);
-  color: var(--slate);
-  padding: 5px 10px;
-  border-radius: 4px;
-  /* Pill shape or rounded rect */
-  font-family: var(--font-mono);
-  font-size: 13px;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: var(--transition);
+  border: 1px solid transparent;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  background: var(--lightest-navy);
+  border-color: var(--green);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.skill-icon {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--light-slate);
+  /* Default if icon has no color, though mostly overridden */
+}
+
+/* Ensure map icons retain their colors or adapt */
+.skill-icon svg {
+  /* Let the specific mapped colors shine, or force specific behavior if needed */
   transition: var(--transition);
 }
 
-.skill-tag:hover {
-  color: var(--green);
-  background: var(--lightest-navy);
+.skill-name {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--lightest-slate);
+  font-weight: 500;
 }
+
+.skill-card:hover .skill-name {
+  color: var(--green);
+}
+
 
 /* Animations */
 @keyframes fadeInUp {
@@ -504,6 +534,7 @@ header {
     display: none;
     /* For simplicity, hide desktop nav on mobile or implement burger menu later */
   }
+
   .skills-grid {
     grid-template-columns: 1fr;
   }
