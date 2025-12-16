@@ -11,28 +11,29 @@ const Hero = () => {
       flexDirection: 'column', 
       alignItems: 'center', 
       justifyContent: 'center',
-      minHeight: '100vh',
-      position: 'relative'
+      minHeight: '100dvh', /* mobile viewport fix */
+      position: 'relative',
+      paddingBottom: '60px' /* visual balance */
     }}>
-       <h4 style={{ color: 'var(--green)', fontFamily: 'var(--font-mono)', marginBottom: '20px', fontSize: '16px' }}>Hi, I am</h4>
+       <h4 style={{ color: 'var(--green)', fontFamily: 'var(--font-mono)', marginBottom: '15px', fontSize: '16px' }}>Hi, I am</h4>
        <h1 style={{ color: 'var(--lightest-slate)', fontSize: 'clamp(40px, 8vw, 70px)', lineHeight: '1.1', marginBottom: '10px' }}>
          Sri Saketh.
        </h1>
-       <h2 style={{ color: 'var(--slate)', fontSize: 'clamp(30px, 5vw, 50px)', lineHeight: '1.1', marginBottom: '20px' }}>
+       <h2 style={{ color: 'var(--slate)', fontSize: 'clamp(30px, 5vw, 50px)', lineHeight: '1.1', marginBottom: '15px' }}>
            Software Developer
        </h2>
-       <p style={{ maxWidth: '540px', fontSize: '16px', lineHeight: '1.6', marginBottom: '40px', color: 'var(--slate)', margin: '0 auto 40px auto' }}>
+       <p style={{ maxWidth: '540px', fontSize: '16px', lineHeight: '1.6', marginBottom: '30px', color: 'var(--slate)', margin: '0 auto 30px auto', padding: '0 20px' }}>
           {/* A B.Tech CSE graduate and Software Development Engineer, specializing in building production-grade RESTful APIs, real-time systems, and AI-driven platforms. */}
           Designing scalable APIs, real-time communication systems, and AI-integrated platforms.
        </p>
        
-       <div style={{ display: 'flex', gap: '25px', justifyContent: 'center' }}>
+       <div style={{ display: 'flex', gap: '25px', justifyContent: 'center', marginBottom: '40px' }}>
           <a href="https://github.com/Saketh0014" target="_blank" rel="noopener noreferrer" className="hero-icon" style={{ fontSize: '28px' }}><FaGithub /></a>
           <a href="https://www.linkedin.com/in/sri-saketh-35767224a" target="_blank" rel="noopener noreferrer" className="hero-icon" style={{ fontSize: '28px' }}><FaLinkedin /></a>
           <a href="https://mail.google.com/mail/?view=cm&fs=1&to=srisaketh111@gmail.com" target="_blank" rel="noopener noreferrer" className="hero-icon" style={{ fontSize: '28px' }}><FaEnvelope /></a>
        </div>
 
-       <div style={{ position: 'absolute', bottom: '40px', left: '50%', transform: 'translateX(-50%)', zIndex: 10 }}>
+       <div style={{ position: 'absolute', bottom: '15%', left: '50%', transform: 'translateX(-50%)', zIndex: 10 }}>
          <a href="#about" className="more-btn">
            More About Me
          </a>

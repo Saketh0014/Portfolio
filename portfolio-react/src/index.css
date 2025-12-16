@@ -274,7 +274,8 @@ header {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 1000;
+  z-index: 99;
+  /* Reduced from 1000 so it goes behind header/sidebar */
   box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
   transition: all 0.3s ease;
 }
@@ -525,18 +526,161 @@ header {
 }
 
 /* Responsive */
+/* Responsive */
 @media (max-width: 768px) {
   header {
     padding: 0 20px;
+    height: 70px;
+    background: rgba(10, 25, 47, 0.95);
+    /* Little darker for mobile */
+  }
+
+  .nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .hamburger {
+    display: flex;
+    /* Flex to center icon */
+    align-items: center;
+    justify-content: center;
+    color: var(--lightest-slate);
+    /* Match Logo color */
+    font-size: 22px;
+    /* Match Logo size */
+    cursor: pointer;
+    z-index: 2005;
+    position: relative;
+    border: 1px solid var(--green);
+    /* Match Logo border */
+    padding: 5px 10px;
+    /* Match Logo padding */
+    border-radius: 5px;
+    /* Match Logo radius */
+    transition: var(--transition);
+  }
+
+  .hamburger:hover {
+    color: var(--green);
+    background-color: transparent;
   }
 
   .header-nav {
-    display: none;
-    /* For simplicity, hide desktop nav on mobile or implement burger menu later */
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: min(75vw, 300px);
+    /* Limits width to 300px or 75% of view, whichever is smaller */
+    background: rgba(10, 25, 47, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -10px 0px 30px -15px rgba(2, 12, 27, 0.7);
+    z-index: 2000;
+    /* Increased to sit above everything including scroll button */
+    gap: 0;
+    padding: 90px 0 20px 0;
+    /* Reduced bottom padding */
+    overflow-y: auto;
   }
 
-  .skills-grid {
-    grid-template-columns: 1fr;
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    /* Slight dimming of the rest of screen */
+    backdrop-filter: blur(3px);
+    /* Optional: blurs content behind overlay too */
+    z-index: 1999;
+    /* Just below the sidebar */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .header-nav.active {
+    transform: translateX(0);
+  }
+
+  /* Navigation open state utility */
+  .no-scroll {
+    overflow: hidden;
+  }
+
+  .header-nav a {
+    cursor: pointer;
+    /* Force pointer cursor */
+    display: block;
+    /* Ensure it takes full width */
+    font-size: 16px;
+    width: 100%;
+    text-align: left;
+    padding: 20px 30px;
+    transition: all 0.2s ease;
+    border-left: 4px solid transparent;
+    border-bottom: 1px solid rgba(136, 146, 176, 0.1);
+    color: var(--light-slate);
+    font-family: var(--font-mono);
+  }
+
+  .header-nav a:hover,
+  .header-nav a:active {
+    color: var(--green) !important;
+    background-color: rgba(100, 255, 218, 0.1) !important;
+    /* Stronger highlight */
+    border-left: 44px solid var(--green);
+    border-radius: 0;
+    padding-left: 35px;
+    letter-spacing: 0.5px;
+  }
+
+  .resume-btn {
+    margin: 15px auto !important;
+    /* Reduced top/bottom margin */
+    /* Center the button */
+    margin-left: 30px !important;
+    /* Force left align if preferred, or auto for center. Let's align with links */
+    padding: 12px 40px !important;
+    width: auto;
+    display: inline-block;
+    text-align: center;
+  }
+}
+
+/* Desktop Styles Restored/Ensured */
+@media (min-width: 769px) {
+  .hamburger {
+    display: none;
+  }
+
+  .header-nav {
+    display: flex !important;
+    /* Ensure flex is active on desktop */
+    transform: none !important;
+    /* No transforms */
+    position: static !important;
+    /* Normal flow */
+    height: auto !important;
+    width: auto !important;
+    background: transparent !important;
+    box-shadow: none !important;
   }
 }
 
