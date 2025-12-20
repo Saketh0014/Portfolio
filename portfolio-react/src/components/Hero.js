@@ -105,7 +105,7 @@ const Hero = () => {
            </div>
            <div className="monitor-item">
              <span className="label">AI INTEGRATIONS</span>
-             <span className="value">OpenAI • Gemini • LangChain</span>
+             <span className="value">OpenAI • Gemini • NLP</span>
            </div>
            <div className="monitor-item">
              <span className="label">IMPACT</span>
