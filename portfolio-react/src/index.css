@@ -1,17 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 :root {
-  --navy: #0a192f;
-  --light-navy: #112240;
-  --lightest-navy: #233554;
-  --slate: #8892b0;
-  --light-slate: #a8b2d1;
-  --lightest-slate: #ccd6f6;
-  --white: #e6f1ff;
-  --green: #64ffda;
-  --green-tint: rgba(100, 255, 218, 0.1);
-  --glass-bg: rgba(17, 34, 64, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --navy: #020205;
+  /* True Rich Black */
+  --light-navy: #0a0a0c;
+  /* Very Dark Grey/Black */
+  --lightest-navy: #15151a;
+  --slate: #948c9e;
+  --light-slate: #b6aeca;
+  --lightest-slate: #f1f0f5;
+  --white: #ffffff;
+  --green: #8b5cf6;
+  /* Electric Violet */
+  --green-tint: rgba(139, 92, 246, 0.1);
+  --glass-bg: rgba(2, 2, 5, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.08);
   --font-sans: 'Inter', 'Segoe UI', sans-serif;
   --font-mono: 'Space Grotesk', monospace;
   --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -29,6 +32,7 @@ html {
 
 body {
   background-color: var(--navy);
+  background-attachment: fixed;
   color: var(--slate);
   font-family: var(--font-sans);
   font-size: 16px;
@@ -37,6 +41,67 @@ body {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
+}
+
+/* Spotlight & Tech Grid Background */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* The Tech Grid Pattern */
+  background-image:
+    linear-gradient(rgba(139, 92, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 92, 246, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+
+  /* The MASK: Reveals grid only near mouse */
+  mask-image: radial-gradient(circle at var(--x, 50%) var(--y, 50%),
+      black 0%,
+      transparent 20%);
+  -webkit-mask-image: radial-gradient(circle at var(--x, 50%) var(--y, 50%),
+      black 0%,
+      transparent 20%);
+
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Base Ambient Glow (Always Visible) */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 10%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -2;
+}
+
+@keyframes rotateGlow {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(10%, 10%);
+  }
+
+  50% {
+    transform: translate(0, 20%);
+  }
+
+  75% {
+    transform: translate(-10%, 10%);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
 /* Scrollbar */
@@ -122,33 +187,61 @@ main {
 }
 
 /* Sections */
+/* Sections */
 section {
-  padding: 80px 0;
+  padding: 40px 0;
+  /* Reduced from 80px to fix large gaps */
   opacity: 0;
   animation: fadeInUp 1s forwards;
 }
 
+/* Global Section Title: Left Aligned + One Line Right */
 .section-title {
   display: flex;
   align-items: center;
-  margin-bottom: 40px;
+  justify-content: flex-start;
+  /* Left align everything */
+  margin: 0 0 60px 0;
   color: var(--lightest-slate);
   font-family: var(--font-mono);
   font-size: 28px;
   white-space: nowrap;
+  width: 100%;
+}
+
+.section-title::before {
+  display: none;
 }
 
 .section-title::after {
   content: "";
   display: block;
   width: 100%;
-  /* Flexible line width */
   max-width: 300px;
   height: 1px;
   background-color: var(--lightest-navy);
   margin-left: 20px;
+  opacity: 0.5;
 }
 
+/* Scroll Offset Logic */
+/* Fix anchor link scrolling being covered by header */
+section {
+  scroll-margin-top: 100px;
+  /* Optimal offset */
+}
+
+/* Specific Gap Fixes */
+#experience,
+#skills,
+#projects,
+#contact {
+  scroll-margin-top: 85px;
+  /* Close to 80px header */
+  padding-top: 0;
+}
+
+/* Header */
 /* Header */
 header {
   position: fixed;
@@ -156,7 +249,8 @@ header {
   left: 0;
   width: 100%;
   height: 80px;
-  background: rgba(10, 25, 47, 0.85);
+  background: rgba(2, 2, 5, 0.85);
+  /* Deep black glass */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   z-index: 100;
@@ -164,7 +258,8 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
-  box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+  /* Sleek Line */
   transition: var(--transition);
 }
 
@@ -172,6 +267,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* width: 100%; removed to fix spacing distribution if needed, but keeping generally safe */
   width: 100%;
 }
 
@@ -226,18 +322,22 @@ header {
 }
 
 .project-card {
-  background-color: var(--light-navy);
-  /* Solid bg for readability, can be glass if preferred */
+  background-color: rgba(10, 10, 12, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   padding: 2rem 1.75rem;
-  border-radius: 4px;
+  border-radius: 8px;
+  border: 1px solid rgba(167, 139, 250, 0.05);
   transition: var(--transition);
   cursor: pointer;
   position: relative;
+  overflow: hidden;
 }
 
 .project-card:hover {
   transform: translateY(-7px);
-  box-shadow: 0 20px 30px -15px rgba(2, 12, 27, 0.7);
+  box-shadow: 0 10px 30px -15px rgba(167, 139, 250, 0.25);
+  border-color: rgba(167, 139, 250, 0.5);
 }
 
 .project-top {
@@ -387,9 +487,143 @@ header {
 @media (max-width: 768px) {
   header {
     padding: 0 20px;
+    height: 70px;
+    background: rgba(2, 2, 5, 0.95);
+    /* Little darker for mobile */
+  }
+
+  .nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .hamburger {
+    display: flex;
+    /* Flex to center icon */
+    align-items: center;
+    justify-content: center;
+    color: var(--lightest-slate);
+    /* Match Logo color */
+    font-size: 22px;
+    /* Match Logo size */
+    cursor: pointer;
+    z-index: 2005;
+    position: relative;
+    border: 1px solid var(--green);
+    /* Match Logo border */
+    padding: 5px 10px;
+    /* Match Logo padding */
+    border-radius: 5px;
+    /* Match Logo radius */
+    transition: var(--transition);
+  }
+
+  .hamburger:hover {
+    color: var(--green);
+    background-color: transparent;
   }
 
   .header-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: min(75vw, 300px);
+    /* Limits width to 300px or 75% of view, whichever is smaller */
+    background: rgba(17, 7, 31, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -10px 0px 30px -15px rgba(2, 12, 27, 0.7);
+    z-index: 2000;
+    /* Increased to sit above everything including scroll button */
+    gap: 0;
+    padding: 90px 0 20px 0;
+    /* Reduced bottom padding */
+    overflow-y: auto;
+  }
+
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    /* Slight dimming of the rest of screen */
+    backdrop-filter: blur(3px);
+    /* Optional: blurs content behind overlay too */
+    z-index: 1999;
+    /* Just below the sidebar */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .header-nav.active {
+    transform: translateX(0);
+  }
+
+  /* Navigation open state utility */
+  .no-scroll {
+    overflow: hidden;
+  }
+
+  .header-nav a {
+    cursor: pointer;
+    /* Force pointer cursor */
+    display: block;
+    /* Ensure it takes full width */
+    font-size: 16px;
+    width: 100%;
+    text-align: left;
+    padding: 20px 30px;
+    transition: all 0.2s ease;
+    border-left: 4px solid transparent;
+    border-bottom: 1px solid rgba(136, 146, 176, 0.1);
+    color: var(--light-slate);
+    font-family: var(--font-mono);
+  }
+
+  .header-nav a:hover,
+  .header-nav a:active {
+    color: var(--green) !important;
+    background-color: rgba(100, 255, 218, 0.1) !important;
+    /* Stronger highlight */
+    border-left: 44px solid var(--green);
+    border-radius: 0;
+    padding-left: 35px;
+    letter-spacing: 0.5px;
+  }
+
+  .resume-btn {
+    margin: 15px auto !important;
+    /* Reduced top/bottom margin */
+    /* Center the button */
+    margin-left: 30px !important;
+    /* Force left align if preferred, or auto for center. Let's align with links */
+    padding: 12px 40px !important;
+    width: auto;
+    display: inline-block;
+    text-align: center;
+  }
+}
+
+/* Desktop Styles Restored/Ensured */
+@media (min-width: 769px) {
+  .hamburger {
     display: none;
     /* For simplicity, hide desktop nav on mobile or implement burger menu later */
   }
