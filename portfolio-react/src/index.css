@@ -43,7 +43,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Spotlight & Tech Grid Background */
+/* Modern Creative Background */
 body::before {
   content: "";
   position: fixed;
@@ -51,25 +51,18 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  /* The Tech Grid Pattern */
+
+  /* The Tech Grid - Always visible but subtle */
   background-image:
-    linear-gradient(rgba(139, 92, 246, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(139, 92, 246, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(139, 92, 246, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 92, 246, 0.03) 1px, transparent 1px);
   background-size: 50px 50px;
 
-  /* The MASK: Reveals grid only near mouse */
-  mask-image: radial-gradient(circle at var(--x, 50%) var(--y, 50%),
-      black 0%,
-      transparent 20%);
-  -webkit-mask-image: radial-gradient(circle at var(--x, 50%) var(--y, 50%),
-      black 0%,
-      transparent 20%);
-
+  z-index: -2;
   pointer-events: none;
-  z-index: -1;
 }
 
-/* Base Ambient Glow (Always Visible) */
+/* The Active Spotlight & Pulse */
 body::after {
   content: "";
   position: fixed;
@@ -77,31 +70,49 @@ body::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 50% 10%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+
+  /* 1. Mouse Spotlight (Brightens the grid) */
+  background:
+    radial-gradient(circle at var(--x, 50%) var(--y, 50%),
+      rgba(139, 92, 246, 0.15) 0%,
+      transparent 25%),
+
+    /* 2. Ambient Gradient Pulse */
+    radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 40%);
+
+  z-index: -1;
   pointer-events: none;
-  z-index: -2;
+  animation: bgPulse 10s ease-in-out infinite alternate;
 }
 
-@keyframes rotateGlow {
+/* Floating Tech Lines Animation */
+@keyframes bgPulse {
   0% {
-    transform: translate(0, 0);
-  }
-
-  25% {
-    transform: translate(10%, 10%);
-  }
-
-  50% {
-    transform: translate(0, 20%);
-  }
-
-  75% {
-    transform: translate(-10%, 10%);
+    opacity: 0.8;
+    transform: scale(1);
   }
 
   100% {
-    transform: translate(0, 0);
+    opacity: 1;
+    transform: scale(1.05);
   }
+}
+
+/* Scanline Effect Overlay */
+.scanline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom,
+      transparent 50%,
+      rgba(0, 0, 0, 0.3) 50%);
+  background-size: 100% 4px;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.05;
+  /* CRT TV vibe */
 }
 
 /* Scrollbar */
@@ -197,22 +208,55 @@ section {
   /* Fix anchor overlap */
 }
 
-/* Global Section Title: Left Aligned + One Line Right */
+/* Global Section Title: Left Aligned + Vibrant Line Right */
 .section-title {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  /* Left align */
-  margin: 0 0 60px 0;
+  margin: 0 0 40px 0;
   color: var(--lightest-slate);
   font-family: var(--font-mono);
-  font-size: 28px;
+  font-size: clamp(26px, 5vw, 32px);
   white-space: nowrap;
   width: 100%;
 }
 
+.section-title::after {
+  content: "";
+  display: block;
+  width: 100%;
+  /* Fills remaining space */
+  max-width: 400px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--green) 0%, rgba(139, 92, 246, 0.2) 100%);
+  margin-left: 20px;
+  opacity: 1;
+  /* Vibrant */
+  box-shadow: 0 0 5px var(--green);
+  /* Slight glow */
+}
+
 .section-title::before {
   display: none;
+}
+
+/* Specific Gap Fixes */
+#experience,
+#skills,
+#projects,
+#contact {
+  scroll-margin-top: 85px;
+  /* Close to 80px header */
+  padding-top: 0;
+}
+
+
+
+/* Scroll Offset Logic */
+/* Fix anchor link scrolling being covered by header */
+section {
+  scroll-margin-top: 100px;
+  /* Optimal offset */
 }
 
 /* Specific Gap Fixes */
@@ -789,4 +833,79 @@ header {
 .contact-link:hover {
   color: var(--green) !important;
   text-decoration: underline;
+}
+
+/* Hero Tech Lines */
+.hero-lines-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+  /* Below content but above background */
+}
+
+.hero-line {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, var(--green), transparent);
+  height: 1px;
+  width: 100%;
+  opacity: 0.1;
+  animation: scan 8s linear infinite;
+}
+
+.hero-line:nth-child(1) {
+  top: 25%;
+  animation-duration: 20s;
+  opacity: 0.15;
+}
+
+.hero-line:nth-child(2) {
+  top: 75%;
+  animation-duration: 15s;
+  animation-direction: reverse;
+  opacity: 0.1;
+}
+
+.hero-line-v {
+  position: absolute;
+  background: linear-gradient(180deg, transparent, var(--green), transparent);
+  width: 1px;
+  height: 100%;
+  opacity: 0.1;
+  animation: scanV 10s linear infinite;
+}
+
+.hero-line-v:nth-child(3) {
+  left: 15%;
+  animation-duration: 12s;
+}
+
+.hero-line-v:nth-child(4) {
+  right: 15%;
+  animation-duration: 18s;
+  animation-direction: reverse;
+}
+
+@keyframes scan {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes scanV {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
 }

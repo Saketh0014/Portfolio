@@ -23,6 +23,7 @@ function App() {
   return (
     <>
       <Header />
+      <div className="scanline"></div>
       <main className="app-container">
         <Hero />
         <About />

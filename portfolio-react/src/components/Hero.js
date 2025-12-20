@@ -1,5 +1,5 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaTerminal } from 'react-icons/fa';
 
 const Hero = () => {
 
@@ -14,16 +14,22 @@ const Hero = () => {
       minHeight: '100dvh',
       position: 'relative',
     }}>
+      {/* Decorative Tech Lines */}
+      <div className="hero-lines-container">
+        <div className="hero-line"></div>
+        <div className="hero-line"></div>
+        <div className="hero-line-v"></div>
+        <div className="hero-line-v"></div>
+      </div>
+
        <h4 style={{ color: 'var(--green)', fontFamily: 'var(--font-mono)', marginBottom: '10px', fontSize: '16px' }}>Hi, I am</h4>
-       <h1 style={{ 
+       <h1 className="hero-name" style={{ 
          color: 'var(--lightest-slate)', 
          fontSize: 'clamp(40px, 7vw, 70px)', 
          lineHeight: '1.1', 
          marginBottom: '5px',
-         background: 'linear-gradient(to right, #f5f3ff 0%, #A78BFA 100%)',
-         WebkitBackgroundClip: 'text',
-         WebkitTextFillColor: 'transparent',
-         display: 'inline-block'
+         display: 'inline-block',
+         transition: 'all 0.3s ease'
        }}>
          Sri Saketh.
        </h1>
@@ -34,13 +40,16 @@ const Hero = () => {
        {/* Backend System Monitor */}
        <div className="system-monitor">
          <div className="monitor-header">
-           <span className="status-dot blink"></span>
-           <span className="monitor-title">BACKEND SYSTEM ARCHITECTURE</span>
+           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+             <span className="status-dot blink"></span>
+             <span className="monitor-title">MY_TECH_DNA</span>
+           </div>
+           <FaTerminal style={{ color: 'var(--green)', fontSize: '14px' }} />
          </div>
          <div className="monitor-grid">
            <div className="monitor-item">
              <span className="label">CORE STACK</span>
-             <span className="value">Django • FastAPI • PostgreSQL</span>
+             <span className="value">Django • Flask • PostgreSQL</span>
            </div>
            <div className="monitor-item">
              <span className="label">INFRASTRUCTURE</span>
@@ -58,6 +67,7 @@ const Hero = () => {
          <div className="monitor-footer">
            <span className="log-text">{`> APIs Delivered: 50+ Production Endpoints`}</span>
            <span className="log-text">{`> System Status: SCALABLE & OPTIMIZED`}</span>
+           <span className="log-text" style={{ color: 'var(--green)' }}>{`> ...and many more`}</span>
          </div>
        </div>
        
@@ -76,8 +86,12 @@ const Hero = () => {
        </div>
        <style>
          {`
+           .hero-name:hover {
+             color: var(--green) !important;
+             text-shadow: 0 0 10px rgba(139, 92, 246, 0.4);
+           }
            .hero-icon {
-             color: var(--green);
+             color: var(--lightest-slate); /* Default white/slate */
              transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
              display: flex;
              align-items: center;
@@ -88,7 +102,7 @@ const Hero = () => {
              height: 1em;
            }
            .hero-icon:hover {
-             color: var(--lightest-slate);
+             color: var(--green); /* Purple on hover */
              transform: translateY(-3px);
              text-shadow: 0 0 10px var(--green);
            }
@@ -136,6 +150,7 @@ const Hero = () => {
            .monitor-header {
              display: flex;
              align-items: center;
+             justify-content: space-between; /* Pushes icon to corner */
              padding: 12px 20px;
              background: rgba(139, 92, 246, 0.05);
              border-bottom: 1px solid rgba(139, 92, 246, 0.1);
