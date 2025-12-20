@@ -20,6 +20,7 @@ function App() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+
   return (
     <>
       <Header />
