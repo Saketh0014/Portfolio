@@ -86,10 +86,7 @@ const Hero = () => {
        </div>
        <style>
          {`
-           .hero-name:hover {
-             color: var(--green) !important;
-             text-shadow: 0 0 10px rgba(139, 92, 246, 0.4);
-           }
+
            .hero-icon {
              color: var(--lightest-slate); /* Default white/slate */
              transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
