@@ -42,26 +42,51 @@ const skillIcons = {
   'Computer Vision': <SiOpencv color="#5C3EE8" />,
 };
 
-const skillsList = [
-  'Python', 'C', 'C++', 'Java', 'JavaScript',
-  'Django', 'Django REST Framework', 'Flask', /* 'FastAPI', */
-  'React', 'Next.js', 'HTML', 'CSS',
-  'PostgreSQL', 'MySQL', 'MariaDB', 'SQLite', 'Supabase',
-  'AWS (EC2, Lambda)', 'Docker', /* 'GitHub Actions', */ 'Redis', 'Celery',
-  'OpenAI/Gemini APIs', /* 'LangChain', */ 'Agentic AI', 'NLP', /* 'Pinecone', 'Computer Vision' */
+const skillsData = [
+  {
+    category: 'Primary Languages',
+    skills: ['Python', 'C', 'C++', 'Java', 'JavaScript'],
+  },
+  {
+    category: 'Backend Frameworks',
+    skills: ['Django', 'Django REST Framework', 'Flask' /*, 'FastAPI' */],
+  },
+  {
+    category: 'Frontend & Web',
+    skills: ['React', 'Next.js', 'HTML', 'CSS'],
+  },
+  {
+    category: 'Databases',
+    skills: ['PostgreSQL', 'MySQL', 'MariaDB', 'SQLite', 'Supabase'],
+  },
+  {
+    category: 'Cloud & DevOps',
+    skills: ['AWS (EC2, Lambda)', 'Docker', /* 'GitHub Actions', */ 'Redis', 'Celery'],
+  },
+  {
+    category: 'AI / ML & LLMs',
+    skills: ['OpenAI/Gemini APIs', /* 'LangChain', */ 'Agentic AI', 'NLP' /*, 'Pinecone', 'Computer Vision' */],
+  },
 ];
 
 const Skills = () => {
   return (
     <section id="skills" className="fade-in-section">
       <h2 className="section-title">Skills</h2>
-      <div className="skill-cards" style={{ marginTop: '20px' }}>
-        {skillsList.map((skill, index) => (
-          <div key={index} className="skill-card">
-            <span className="skill-icon">
-              {skillIcons[skill] || <FaCode />}
-            </span>
-            <span className="skill-name">{skill}</span>
+      <div className="skills-container">
+        {skillsData.map((group, index) => (
+          <div key={index} className="skill-category">
+            <h3>{group.category}</h3>
+            <div className="skill-cards">
+              {group.skills.map((skill, i) => (
+                <div key={i} className="skill-card">
+                  <span className="skill-icon">
+                    {skillIcons[skill] || <FaCode />} {/* Fallback icon */}
+                  </span>
+                  <span className="skill-name">{skill}</span>
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </div>

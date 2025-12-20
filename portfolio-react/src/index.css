@@ -190,9 +190,11 @@ main {
 /* Sections */
 section {
   padding: 40px 0;
-  /* Reduced from 80px to fix large gaps */
+  /* Reduced from 80px */
   opacity: 0;
   animation: fadeInUp 1s forwards;
+  scroll-margin-top: 100px;
+  /* Fix anchor overlap */
 }
 
 /* Global Section Title: Left Aligned + One Line Right */
@@ -200,7 +202,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  /* Left align everything */
+  /* Left align */
   margin: 0 0 60px 0;
   color: var(--lightest-slate);
   font-family: var(--font-mono);
@@ -211,24 +213,6 @@ section {
 
 .section-title::before {
   display: none;
-}
-
-.section-title::after {
-  content: "";
-  display: block;
-  width: 100%;
-  max-width: 300px;
-  height: 1px;
-  background-color: var(--lightest-navy);
-  margin-left: 20px;
-  opacity: 0.5;
-}
-
-/* Scroll Offset Logic */
-/* Fix anchor link scrolling being covered by header */
-section {
-  scroll-margin-top: 100px;
-  /* Optimal offset */
 }
 
 /* Specific Gap Fixes */
