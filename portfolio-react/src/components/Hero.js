@@ -38,7 +38,7 @@ const Hero = () => {
 
   return (
     <section id="hero" className="fade-in-section" style={{ 
-      padding: '95px 20px 40px 20px', 
+      padding: '85px 20px 40px 20px', 
       textAlign: 'center', 
       display: 'flex', 
       flexDirection: 'column', 
@@ -105,16 +105,16 @@ const Hero = () => {
            </div>
            <div className="monitor-item">
              <span className="label">AI INTEGRATIONS</span>
-             <span className="value">OpenAI • Gemini • NLP</span>
+             <span className="value">OpenAI • Gemini • LangChain</span>
            </div>
            <div className="monitor-item">
-             <span className="label">IMPACT</span>
-             <span className="value success">50+ APIs • Scalable Systems</span>
+             <span className="label">PAYMENT INTEGRATIONS</span>
+             <span className="value">Stripe • Razorpay</span>
            </div>
          </div>
          <div className="monitor-footer">
            <span className="log-text">{`> Shipped production-ready backend systems`}</span>
-           <span className="log-text">{`> Built real-time APIs used by actual users`}</span>
+           <span className="log-text">{`> Built 50+ real-time production grade APIs`}</span>
            <span className="log-text">{`> Integrated AI workflows into live products`}</span>
            <span className="log-text" style={{ color: 'var(--green)' }}>{`> ...and many more`}</span>
          </div>
