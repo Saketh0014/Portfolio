@@ -708,43 +708,53 @@ header {
     overflow: hidden;
   }
 
+  /* Mobile Link Styles */
   .header-nav a {
     cursor: pointer;
-    /* Force pointer cursor */
     display: block;
-    /* Ensure it takes full width */
-    font-size: 16px;
     width: 100%;
     text-align: left;
     padding: 20px 30px;
-    transition: all 0.2s ease;
-    border-left: 4px solid transparent;
-    border-bottom: 1px solid rgba(136, 146, 176, 0.1);
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    border-left: 2px solid transparent;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+    /* Sleek dividing line */
     color: var(--light-slate);
     font-family: var(--font-mono);
+    font-size: 16px;
   }
 
+  /* Aggressive Hover Effect - Pure Black on Click/Hover */
   .header-nav a:hover,
   .header-nav a:active {
-    color: var(--green) !important;
-    background-color: rgba(100, 255, 218, 0.1) !important;
-    /* Stronger highlight */
-    border-left: 44px solid var(--green);
-    border-radius: 0;
+    color: var(--green);
+    background-color: #000000;
+    /* Pure Black background */
+    border-left: 4px solid var(--green);
     padding-left: 35px;
-    letter-spacing: 0.5px;
+    box-shadow: inset 5px 0 15px -5px rgba(255, 255, 255, 0.1);
+    /* Subtle highlight */
   }
 
+  /* Improved Resume Button Mobile */
   .resume-btn {
-    margin: 15px auto !important;
-    /* Reduced top/bottom margin */
-    /* Center the button */
-    margin-left: 30px !important;
-    /* Force left align if preferred, or auto for center. Let's align with links */
-    padding: 12px 40px !important;
-    width: auto;
-    display: inline-block;
+    margin: 20px auto 40px auto !important;
+    /* Reduced top gap, visible bottom gap */
+    display: block;
+    width: 80% !important;
     text-align: center;
+    border: 1px solid var(--green);
+    color: var(--green);
+    padding: 15px 0 !important;
+    border-radius: 4px;
+    background: transparent;
+    transition: all 0.25s ease-in-out;
+  }
+
+  .resume-btn:hover {
+    background-color: rgba(139, 92, 246, 0.1) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(139, 92, 246, 0.2);
   }
 }
 
