@@ -3,7 +3,7 @@ import React from 'react';
 const education = [
   {
     degree: 'Bachelors of Technology',
-    institution: 'Rajamahendri Institute Of Technology',
+    institution: 'Rajamahendri Institute Of Engineering & Technology',
     period: '2020 – 2024',
   },
   {

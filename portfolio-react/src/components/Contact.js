@@ -187,23 +187,7 @@ const Contact = () => {
               <textarea name="message" id="message" rows="4" style={{ width: '100%', padding: '10px', borderRadius: '4px', border: '1px solid var(--lightest-navy)', background: 'var(--navy)', color: 'var(--lightest-slate)', fontSize: '14px', resize: 'vertical' }}></textarea>
             </div>
             
-            <button type="submit" disabled={isSubmitting} style={{ 
-                width: '100%', 
-                padding: '12px', 
-                background: 'var(--green)', 
-                color: 'var(--navy)', 
-                border: 'none', 
-                borderRadius: '4px', 
-                fontSize: '14px', 
-                fontWeight: 'bold', 
-                cursor: isSubmitting ? 'not-allowed' : 'pointer',
-                opacity: isSubmitting ? 0.7 : 1,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px',
-                transition: 'var(--transition)'
-            }}>
+            <button type="submit" disabled={isSubmitting} className="send-message-btn">
               {isSubmitting ? 'Sending...' : 'Send Message'} <FaPaperPlane />
             </button>
           </form>

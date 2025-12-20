@@ -25,7 +25,7 @@ const Experience = () => {
         {experiences.map((job, index) => (
           <div key={index} className="job">
             <h3 className="job-role">
-              {job.role} <span className="job-company">@ <a href={job.companyUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--green)', textDecoration: 'underline', textUnderlineOffset: '4px' }}>{job.company}</a></span>
+              {job.role} <span className="job-company">@ <a href={job.companyUrl} target="_blank" rel="noopener noreferrer" className="company-link">{job.company}</a></span>
             </h3>
             <p className="job-duration">{job.date}</p>
             <ul className="job-desc-list">
