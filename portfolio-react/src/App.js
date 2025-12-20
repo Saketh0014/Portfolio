@@ -11,8 +11,6 @@ import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 
 
-
-
 function App() {
   return (
     <>
