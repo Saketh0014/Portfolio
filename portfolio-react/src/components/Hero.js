@@ -2,16 +2,49 @@ import React from "react";
 import { FaGithub, FaLinkedin, FaEnvelope, FaTerminal } from 'react-icons/fa';
 
 const Hero = () => {
+  const [text, setText] = React.useState('');
+  const [isDeleting, setIsDeleting] = React.useState(false);
+  const [loopNum, setLoopNum] = React.useState(0);
+  const [typingSpeed, setTypingSpeed] = React.useState(200);
+
+  const words = ["Backend Developer", "Full Stack Learner", "Software Developer", "AI & Agentic Systems"];
+
+  React.useEffect(() => {
+    const handleTyping = () => {
+      const i = loopNum % words.length;
+      const fullText = words[i];
+
+      setText(prev => 
+        isDeleting 
+          ? fullText.substring(0, prev.length - 1) 
+          : fullText.substring(0, prev.length + 1)
+      );
+
+      // Typing Speed Control (Slower)
+      setTypingSpeed(isDeleting ? 100 : 200);
+
+      if (!isDeleting && text === fullText) {
+        setTimeout(() => setIsDeleting(true), 1500); // Pause before deleting
+        return; 
+      } else if (isDeleting && text === '') {
+        setIsDeleting(false);
+        setLoopNum(loopNum + 1);
+      }
+    };
+
+    const timer = setTimeout(handleTyping, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [text, isDeleting, loopNum, typingSpeed]); 
 
   return (
     <section id="hero" className="fade-in-section" style={{ 
-      padding: '110px 20px 20px 20px', /* Compact padding */
+      padding: '95px 20px 40px 20px', 
       textAlign: 'center', 
       display: 'flex', 
       flexDirection: 'column', 
       alignItems: 'center', 
-      justifyContent: 'center',
-      minHeight: '100dvh',
+      justifyContent: 'flex-start',
+      minHeight: '100vh',
       position: 'relative',
     }}>
       {/* Decorative Tech Lines */}
@@ -22,19 +55,34 @@ const Hero = () => {
         <div className="hero-line-v"></div>
       </div>
 
-       <h4 style={{ color: 'var(--green)', fontFamily: 'var(--font-mono)', marginBottom: '10px', fontSize: '16px' }}>Hi, I am</h4>
+       <h4 style={{ color: 'var(--green)', fontFamily: 'var(--font-mono)', marginBottom: '5px', fontSize: '16px' }}>Hi, I am</h4>
        <h1 className="hero-name" style={{ 
          color: 'var(--lightest-slate)', 
          fontSize: 'clamp(40px, 7vw, 70px)', 
          lineHeight: '1.1', 
-         marginBottom: '5px',
+         marginBottom: '0px', 
          display: 'inline-block',
-         transition: 'all 0.3s ease'
+         transition: 'all 0.3s ease',
+         position: 'relative',
+         zIndex: 1
        }}>
+         {/* Violet Backlight: Vertical bridge from Name to Box */}
+         <span style={{
+            position: 'absolute',
+            top: '85%', 
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '120%',
+            height: '160%',
+            background: 'radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 65%)',
+            filter: 'blur(45px)',
+            zIndex: -1,
+            pointerEvents: 'none'
+         }}></span>
          Sri Saketh.
        </h1>
        <h2 style={{ color: 'var(--slate)', fontSize: 'clamp(25px, 5vw, 45px)', lineHeight: '1.1', marginBottom: '20px' }}>
-         <span className="typing-text">Software Developer</span>
+         <span className="typing-text">{text}</span>
        </h2>
        
        {/* Backend System Monitor */}
@@ -42,42 +90,43 @@ const Hero = () => {
          <div className="monitor-header">
            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
              <span className="status-dot blink"></span>
-             <span className="monitor-title">MY_TECH_DNA</span>
+             <span className="monitor-title">STUFF I ACTUALLY BUILT</span>
            </div>
            <FaTerminal style={{ color: 'var(--green)', fontSize: '14px' }} />
          </div>
          <div className="monitor-grid">
            <div className="monitor-item">
-             <span className="label">CORE STACK</span>
+             <span className="label">CORE SYSTEMS</span>
              <span className="value">Django • Flask • PostgreSQL</span>
            </div>
            <div className="monitor-item">
-             <span className="label">INFRASTRUCTURE</span>
-             <span className="value">REST • WebSockets • WebRTC</span>
-           </div>
-           <div className="monitor-item">
-             <span className="label">ASYNC PROCESSING</span>
-             <span className="value success">Celery + Redis</span>
+             <span className="label">REAL-TIME & ASYNC</span>
+             <span className="value">WebSockets • Celery • Redis</span>
            </div>
            <div className="monitor-item">
              <span className="label">AI INTEGRATIONS</span>
              <span className="value">OpenAI • Gemini • LangChain</span>
            </div>
+           <div className="monitor-item">
+             <span className="label">IMPACT</span>
+             <span className="value success">50+ APIs • Scalable Systems</span>
+           </div>
          </div>
          <div className="monitor-footer">
-           <span className="log-text">{`> APIs Delivered: 50+ Production Endpoints`}</span>
-           <span className="log-text">{`> System Status: SCALABLE & OPTIMIZED`}</span>
+           <span className="log-text">{`> Shipped production-ready backend systems`}</span>
+           <span className="log-text">{`> Built real-time APIs used by actual users`}</span>
+           <span className="log-text">{`> Integrated AI workflows into live products`}</span>
            <span className="log-text" style={{ color: 'var(--green)' }}>{`> ...and many more`}</span>
          </div>
        </div>
        
-       <div style={{ display: 'flex', gap: '25px', justifyContent: 'center', marginBottom: '10px', flexWrap: 'wrap' }}>
+       <div style={{ display: 'flex', gap: '25px', justifyContent: 'center', marginBottom: '40px', flexWrap: 'wrap' }}>
           <a href="https://github.com/Saketh0014" target="_blank" rel="noopener noreferrer" className="hero-icon" style={{ fontSize: '30px' }}><FaGithub /></a>
           <a href="https://www.linkedin.com/in/sri-saketh-35767224a" target="_blank" rel="noopener noreferrer" className="hero-icon" style={{ fontSize: '30px' }}><FaLinkedin /></a>
           <a href="https://mail.google.com/mail/?view=cm&fs=1&to=srisaketh111@gmail.com" target="_blank" rel="noopener noreferrer" className="hero-icon" style={{ fontSize: '30px' }}><FaEnvelope /></a>
        </div>
 
-       <div style={{ zIndex: 10, marginTop: '10px' }}>
+       <div style={{ position: 'absolute', bottom: '30px', left: '50%', transform: 'translateX(-50%)', zIndex: 10 }}>
          <a href="#about" className="scroll-down-arrow" aria-label="Scroll Down">
            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
              <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
