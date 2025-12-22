@@ -21,18 +21,21 @@ const Experience = () => {
   return (
     <section id="experience" className="experience-container fade-in-section">
       <h2 className="section-title">Internship</h2>
-      <div className="experience-content">
+      <div className="timeline-container">
         {experiences.map((job, index) => (
-          <div key={index} className="job">
-            <h3 className="job-role">
-              {job.role} <span className="job-company">@ <a href={job.companyUrl} target="_blank" rel="noopener noreferrer" className="company-link">{job.company}</a></span>
-            </h3>
-            <p className="job-duration">{job.date}</p>
-            <ul className="job-desc-list">
-              {job.points.map((point, i) => (
-                <li key={i}>{point}</li>
-              ))}
-            </ul>
+          <div key={index} className="timeline-item">
+            <span className="timeline-dot"></span>
+            <div className="timeline-card">
+              <h3 className="job-role">
+                {job.role} <span className="job-company">@ <a href={job.companyUrl} target="_blank" rel="noopener noreferrer" className="company-link">{job.company}</a></span>
+              </h3>
+              <p className="job-duration" style={{ color: 'var(--slate)', marginBottom: '15px', fontFamily: 'var(--font-mono)', fontSize: '13px' }}>{job.date}</p>
+              <ul className="job-desc-list">
+                {job.points.map((point, i) => (
+                  <li key={i}>{point}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         ))}
       </div>

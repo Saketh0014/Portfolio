@@ -31,7 +31,11 @@ const Contact = () => {
 
 
   return (
-    <section id="contact" className="fade-in-section" style={{ maxWidth: '1000px', margin: '20px auto 100px auto', position: 'relative' }}>
+    <section id="contact" className="fade-in-section" style={{ 
+      maxWidth: '1000px', 
+      margin: '0 auto 100px auto', 
+      position: 'relative'
+    }}>
       
       {/* Success Modal */}
       {showModal && (

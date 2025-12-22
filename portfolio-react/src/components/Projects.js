@@ -26,6 +26,11 @@ const projects = [
     tech: ['Python', 'Stripe', 'Image Processing', 'AI Metadata'],
     description: 'Digital Asset Marketplace for high-res media. Built image processing pipelines (resizing, watermarking), Stripe payments, and AI metadata generation.',
   },
+  {
+    title: 'ASL Recognition',
+    tech: ['Python', 'TensorFlow', 'CNN', 'OpenCV'],
+    description: 'Real-time American Sign Language translation using Convolutional Neural Networks. Bridges communication gaps for the hearing-impaired by converting hand gestures to text/speech with high accuracy.',
+  },
 ];
 
 const Projects = () => {

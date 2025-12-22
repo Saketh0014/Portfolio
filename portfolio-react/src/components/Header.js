@@ -46,6 +46,7 @@ const Header = () => {
           <a href="#certifications" onClick={closeMenu}>Certifications</a>
           <a href="#education" onClick={closeMenu}>Education</a>
           <a href="#contact" onClick={closeMenu}>Contact</a>
+
           <a href="https://drive.google.com/file/d/1AX5FHYG8FLAuR75XcatBn1AX2ZTa26G9/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="resume-btn" onClick={closeMenu}>
             Resume
           </a>
