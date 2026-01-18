@@ -10,10 +10,12 @@ import Education from './components/Education';
 import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 
+
 function App() {
   return (
     <>
       <Header />
+      <div className="scanline"></div>
       <main className="app-container">
         <Hero />
         <About />
