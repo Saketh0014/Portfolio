@@ -31,3 +31,7 @@ yarn-error.log*
 *.sln
 *.sw?
 .vercel
+
+# Python bytecode (from git hooks)
+__pycache__/
+*.py[cod]
