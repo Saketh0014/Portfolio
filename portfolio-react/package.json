@@ -17,9 +17,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "dev": "sh scripts/npm-guard/setup.sh --hooks-only && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "security:setup": "sh scripts/npm-guard/setup.sh",
+    "security:check": "sh scripts/npm-guard/setup.sh --check"
   },
   "engines": {
     "node": ">=18"

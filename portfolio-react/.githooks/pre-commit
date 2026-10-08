@@ -1,0 +1,16 @@
+#!/bin/sh
+# Block risky npm dependency changes before they are committed.
+root=$(git rev-parse --show-toplevel)
+
+if command -v python3 >/dev/null 2>&1; then
+  PYTHON=python3
+elif command -v python >/dev/null 2>&1; then
+  PYTHON=python
+elif command -v py >/dev/null 2>&1; then
+  PYTHON=py
+else
+  echo "npm-guard: Python 3 is required for dependency checks but not found in PATH." >&2
+  exit 1
+fi
+
+exec "$PYTHON" "$root/scripts/npm-guard/check_dependency_changes.py" --staged
